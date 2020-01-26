@@ -1650,8 +1650,6 @@ public class Transaction extends ChildMessage {
     public void verify() throws VerificationException {
         if (inputs.size() == 0 || outputs.size() == 0)
             throw new VerificationException.EmptyInputsOrOutputs();
-        if (this.getMessageSize() > Block.MAX_BLOCK_SIZE)
-            throw new VerificationException.LargerThanMaxBlockSize();
 
         HashSet<TransactionOutPoint> outpoints = new HashSet<>();
         for (TransactionInput input : inputs) {

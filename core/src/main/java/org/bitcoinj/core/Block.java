@@ -732,8 +732,6 @@ public class Block extends Message {
         // transactions that reference spent or non-existent inputs.
         if (transactions.isEmpty())
             throw new VerificationException("Block had no transactions");
-        if (this.getOptimalEncodingMessageSize() > MAX_BLOCK_SIZE)
-            throw new VerificationException("Block larger than MAX_BLOCK_SIZE");
         checkTransactions(height, flags);
         checkMerkleRoot();
         checkSigOps();
